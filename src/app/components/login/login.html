@@ -1,1 +1,24 @@
-<p>login works!</p>
+<main class="login-contenedor">
+  <form class="login-form" (submit)="iniciarSesion($event)">
+    <h1 class="marca">ERP <span>Cafetería</span></h1>
+    <p class="subtitulo">Panel de administración</p>
+
+    <label for="correo">Correo</label>
+    <input type="email" id="correo" name="correo" placeholder="administrador@cafeteria.com"
+           autocomplete="username" required>
+
+    <label for="contrasena">Contraseña</label>
+    <input type="password" id="contrasena" name="contrasena" placeholder="********"
+           autocomplete="current-password" required>
+
+    @if (bienvenida()) {
+      <p class="bienvenida">{{ bienvenida() }}</p>
+    }
+
+    <button type="submit" [disabled]="cargando()">
+      {{ cargando() ? 'Ingresando...' : 'Iniciar sesión' }}
+    </button>
+
+    <p class="nota">Acceso para Administrador y Cliente.</p>
+  </form>
+</main>

@@ -1,0 +1,22 @@
+<main class="home-contenedor">
+  <section class="home-tarjeta">
+    <p class="etiqueta">ERP Cafetería</p>
+    <h1>Hola {{ usuario?.nombre }}, {{ rolTexto }}</h1>
+    <p class="mensaje">
+      @if (usuario?.rol === 'admin') {
+        Bienvenido administrador, iniciaste sesión correctamente.
+      } @else {
+        Bienvenido cliente, iniciaste sesión correctamente.
+      }
+    </p>
+
+    <h2>Tus datos registrados</h2>
+    <dl class="datos-usuario">
+      <dt>Nombre</dt><dd>{{ usuario?.nombre }}</dd>
+      <dt>Correo</dt><dd>{{ usuario?.correo }}</dd>
+      <dt>Rol</dt><dd>{{ usuario?.rol }}</dd>
+    </dl>
+
+    <button type="button" (click)="cerrarSesion()">Cerrar sesión</button>
+  </section>
+</main>
